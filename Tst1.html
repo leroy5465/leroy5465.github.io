@@ -1,52 +1,32 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leroys Gay</title>
-    <style>
-        #container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        a {
-            margin: 5px;
-            padding: 5px;
-            border: 1px solid #333;
-            border-radius: 5px;
-            width: 200px;
-            height: 100px;
-            background-color: #fff;
-            text-align: center;
-            line-height: 50px;
-            color: #333;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-            opacity: 0.5;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-
-        a:hover {
-            opacity: 1;
-        }
-    </style>
-    <script>
-        function openTabs() {
-            var numTabs = 30;
-            for (var i = 0; i < numTabs; i++) {
-                window.open("https://i.pinimg.com/originals/10/9c/06/109c064ae13900a69483a27caa4bc947.jpg", "_blank");
-            }
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Viewer</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+    }
+    img {
+        max-width: 100vw;
+        max-height: 100vh;
+        object-fit: contain;
+        border: 2px solid #333;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const img = document.createElement('img');
+        img.src = 'https://i.ibb.co/ftSCgp1/download.jpg';
+        document.body.appendChild(img);
+    });
+</script>
 </head>
-<body onload="openTabs()">
-    <div id="container"></div>
-    <script>
-        for (var i = 0; i < 30; i++) {
-            document.getElementById("container").innerHTML += `<a href="https://i.pinimg.com/originals/10/9c/06/109c064ae13900a69483a27caa4bc947.jpg" target="_blank" style="display:none;">Open Tab ${i + 1}</a>`;
-        }
-    </script>
+<body>
 </body>
 </html>
