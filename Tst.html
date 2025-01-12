@@ -1,67 +1,51 @@
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>30x Zoom Effect</title>
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open 30 Tabs</title>
+    <style>
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    #canvas {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 3000vw;
-        height: 3000vh;
-        background-image: url("https://source.unsplash.com/random?city,night");
-        background-size: cover;
-        transform: scale(0.033333333) translate(-50%, -50%);
-        transition: transform 0.5s ease-in-out;
-    }
+        a {
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            width: 200px;
+            height: 100px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 50px;
+            color: #333;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
 
-    #canvas.zoomed {
-        transform: scale(1) translate(-50%, -50%);
-    }
-
-    .zoom {
-        position: fixed;
-        top: 50px;
-        right: 50px;
-        background-color: transparent;
-        border: 2px solid white;
-        color: white;
-        font-size: 30px;
-        padding: 10px;
-        cursor: pointer;
-        user-select: none;
-        -webkit-touch-callout: none;
-    }
-
-    .zoom:after {
-        content: 'ZOOM';
-    }
-
-    .zoom:active {
-        transform: scale(0.9);
-    }
-
-    .zoom:hover {
-        background-color: white;
-        color: black;
-    }
-</style>
-<body>
-    <div id="canvas"></div>
-    <div class="zoom" onclick="zoomCanvas()"></div>
-
+        a:hover {
+            opacity: 1;
+        }
+    </style>
     <script>
-        function zoomCanvas() {
-            var canvas = document.getElementById('canvas');
-            canvas.classList.toggle('zoomed');
+        function openTabs() {
+            var numTabs = 30;
+            for (var i = 0; i < numTabs; i++) {
+                window.open("https://www.example.com/tab" + i, "_blank");
+            }
+        }
+    </script>
+</head>
+<body onload="openTabs()">
+    <div id="container"></div>
+    <script>
+        for (var i = 0; i < 30; i++) {
+            document.getElementById("container").innerHTML += `<a href="https://www.example.com/tab${i}" target="_blank" style="display:none;">Open Tab ${i + 1}</a>`;
         }
     </script>
 </body>
